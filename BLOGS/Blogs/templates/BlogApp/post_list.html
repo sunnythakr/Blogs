@@ -9,7 +9,7 @@
       {% for post in post_list %}
       <a href="{{post.get_absolute_url}}"><h2> {{post.title}}</h2></a>
       <p id='date'>Published on {{post.publish}} by {{post.author|title}}</p>
-      <p>Tags :
+      <p>Tags : 
         {%for tag in post.tags.all%}
           <a href="{%url 'post_list_by_tag_name' tag.slug%}" class="btn btn-success btn-lg">{{tag.name}}</a>
           {%if not forloop.last%},{%endif%}
@@ -17,6 +17,7 @@
       </p>
         {{post.body|truncatewords:30|linebreaks}}
       {% endfor %}
+      <hr>
 {%include 'BlogApp/paginator.html' with page=post_list%}   <!-- Paginator page added here  -->
 
     {% endblock %}

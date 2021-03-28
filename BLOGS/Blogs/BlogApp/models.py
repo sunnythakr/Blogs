@@ -9,6 +9,8 @@ class CustomManager(models.Manager): # show only published Post
         return super().get_queryset().filter(status='published') # use of this class it will show only Published Post 
 
 
+# taggit
+from taggit.managers import TaggableManager 
 
 # Create your models here.
 
@@ -23,6 +25,7 @@ class Post(models.Model):
     updated=models.DateTimeField(auto_now=True)
     status=models.CharField(max_length=10,choices=STATUS_CHOICE , default='draft')
     objects = CustomManager()  # Added in the class of model created (published post show )
+    tags = TaggableManager() 
     
 
     class Meta:

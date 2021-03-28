@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from BlogApp.models import Post
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
+from BlogApp.forms import CommentForm
 # Create your views here.
 
 # from taggit.models import Tag
@@ -40,6 +41,8 @@ def post_detail_view(request,year,month,day,post):
     # return render (request,'BlogApp/post_detail.html',{'post':post,})
     return render (request,'BlogApp/post_detail.html',{'post':post,"form":form,"csubmit":csubmit,'comments':comments})
 
+
+# mail sender 
 from django.core.mail import send_mail
 from BlogApp.forms import EmailSendForm
 
@@ -54,7 +57,7 @@ def mail_send_view(request,id):
             sent=True
     else:
         form=EmailSendForm()
-    form=EmailSendForm()
+    form=EmailSendForm() 
     return render(request,'BlogApp/sharebyemail.html',{'form':form,'post':post,'sent':sent})
 
 

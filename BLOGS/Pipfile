@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 shell = "*"
 django = "*"
+django-taggit = "*"
 
 [dev-packages]
 

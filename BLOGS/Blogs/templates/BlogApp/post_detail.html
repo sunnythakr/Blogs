@@ -7,7 +7,7 @@
       <a href="/{{post.id}}/share" class="btn btn-lg btn-success" target=__blank>Share Post By Email</a>
 
       <div >
-        {% with comments.count as comments_count %}
+        {% with comments.count as comments_count %}  
           <h2>{{comments_count}}Comment{{comments_count|pluralize}}</h2>
         {%endwith%}
         {%if comments%}
