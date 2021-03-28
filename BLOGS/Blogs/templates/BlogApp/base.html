@@ -1,5 +1,5 @@
 <!DOCTYPE html>{% load static %}
-
+{% load BlogApp_tags %}
 <html lang="en" dir="ltr">
   <head>
     <!-- Latest compiled and minified CSS -->
@@ -21,7 +21,7 @@
     </div>
     <div class="sidebar">
       <h1>First Blog</h1>
-      <p>Here you can see python Blog updates </p>
+      <p>The total number of published  blogs upto :{ %  total_posts % }  </p>
     </div>
 
   </body>

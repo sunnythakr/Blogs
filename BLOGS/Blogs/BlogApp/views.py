@@ -2,6 +2,9 @@ from django.shortcuts import render,get_object_or_404
 from BlogApp.models import Post
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from BlogApp.forms import CommentForm
+from taggit.models import Tag
+
+
 # Create your views here.
 
 # from taggit.models import Tag
@@ -25,7 +28,7 @@ def post_list_view(request,tag_slug=None):
 
 def post_detail_view(request,year,month,day,post):
     post = get_object_or_404(Post,slug=post,status='published',publish__year=year,publish__month=month,publish__day=day)
-
+ 
     comments=post.comments.filter(active=True)
     csubmit=False
     if request.method=="POST":
