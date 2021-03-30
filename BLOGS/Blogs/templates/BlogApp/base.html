@@ -21,7 +21,17 @@
     </div>
     <div class="sidebar">
       <h1>First Blog</h1>
-      <p>The total number of published  blogs upto :{ %  total_posts % }  </p>
+     <p>The total number of published  blogs upto Today : <span id='pcount'> {%  my_tag %} </span></p>    
+     <h3>Latest Post:</h3>{% show_latest_posts 4%}  <!-- you can  write here how many post you want {% show_latest_posts 4%} -->
+     <h3>Most commented Posts:</h3>
+     {% get_most_commented_posts as most_commented_posts %}
+     <ul>
+       {% for post in most_commented_posts %}
+       <li><a href="{{post.get_absolute_url}}">{{post.title}}</a></li>
+       {%endfor%}
+     </ul>
+
+
     </div>
 
   </body>

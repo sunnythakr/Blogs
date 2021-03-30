@@ -8,3 +8,8 @@
     width: 30%;
     float: right;
 }
+#pcount{
+    font: size 40px;
+    flood-color: blueviolet ;
+    font-weight: bold;
+}
